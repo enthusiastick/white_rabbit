@@ -1,17 +1,14 @@
 App.room = App.cable.subscriptions.create("WebNotificationsChannel", {
   received: function(data) {
-    var cursor, messages, paragraph, span, textNode;
-    messages = document.getElementById("messages");
-    if (messages.firstChild) {
-      messages.removeChild(messages.firstChild)
+    var messagesDiv, messageElement, textNode;
+    messagesDiv = document.getElementById("messages");
+    if (messagesDiv.firstChild) {
+      messagesDiv.removeChild(messagesDiv.firstChild)
     }
-    paragraph = document.createElement("p");
-    span = document.createElement("span");
-    cursor = document.createTextNode("_")
-    span.appendChild(cursor);
+    messageElement = document.createElement("h2");
+    messageElement.classList.add("text-center");
     textNode = document.createTextNode(data["message"]);
-    paragraph.appendChild(textNode);
-    paragraph.appendChild(span);
-    return messages.appendChild(paragraph);
+    messageElement.appendChild(textNode);
+    return messagesDiv.appendChild(messageElement);
   }
 });
