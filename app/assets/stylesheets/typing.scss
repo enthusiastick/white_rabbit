@@ -14,12 +14,15 @@ body {
 #messages h2 {
   font-family: 'Roboto Mono', monospace;
   overflow: hidden;
-  border-right: .15em solid #FFBF00;
   white-space: nowrap;
   margin: 0 auto;
   animation:
     typing 3.5s steps(24, end),
     blink-caret .75s step-end infinite;
+}
+
+.cursor {
+  border-right: .15em solid #FFBF00;
 }
 
 @keyframes typing {
