@@ -1,6 +1,6 @@
 App.room = App.cable.subscriptions.create("WebNotificationsChannel", {
   received: function(data) {
-    var messages, textNode;
+    var cursor, messages, paragraph, span, textNode;
     messages = document.getElementById("messages");
     if (messages.firstChild) {
       messages.removeChild(messages.firstChild)
