@@ -1,7 +1,11 @@
 App.room = App.cable.subscriptions.create("WebNotificationsChannel", {
   received: function(data) {
-    var textNode;
+    var messages, textNode;
+    messages = document.getElementById("messages");
+    if (messages.firstChild) {
+      messages.removeChild(messages.firstChild)
+    }
     textNode = document.createTextNode(data["message"]);
-    return document.getElementById("messages").appendChild(textNode);
+    return messages.appendChild(textNode);
   }
 });
