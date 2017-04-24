@@ -14,6 +14,7 @@ App.room = App.cable.subscriptions.create("WebNotificationsChannel", {
     }
     messageElement = document.createElement("h2");
     messageElement.classList.add("cursor");
+    messageElement.classList.add("text-center");
     textNode = document.createTextNode(data.message);
     messageElement.appendChild(textNode);
     return messagesDiv.appendChild(messageElement);
